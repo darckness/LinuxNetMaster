@@ -6,6 +6,22 @@ from PIL import Image
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
 
+def open_new_window():
+    """Função para abrir uma nova janela"""
+    new_window = ctk.CTk()  # Cria a nova janela
+    new_window.title("Nova Tela")
+    new_window.geometry("400x300")  # Define o tamanho da nova janela
+
+    # Adiciona alguns widgets à nova janela
+    label = ctk.CTkLabel(new_window, text="Bem-vindo à nova tela!", font=("Arial", 16))
+    label.pack(pady=20)
+
+    button = ctk.CTkButton(new_window, text="Fechar", command=new_window.destroy)
+    button.pack(pady=10)
+
+    # Exibe a nova janela
+    new_window.mainloop()
+
 # Janela principal
 root = ctk.CTk()
 root.title("LinuxNetMaster")
@@ -34,7 +50,7 @@ software_name_label.pack(side=ctk.LEFT, padx=20, pady=10)
 left_frame = ctk.CTkFrame(root, fg_color='#ffffff', corner_radius=0, width=70)
 left_frame.pack(side=ctk.LEFT, fill=ctk.Y, padx=0, pady=0)
 
-button = ctk.CTkButton(left_frame, image=image_chave, text="", width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
+button = ctk.CTkButton(left_frame, image=image_chave, text="", command=open_new_window, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
 button.pack(pady=10, padx=10)
 
 # Frame central para os elementos principais

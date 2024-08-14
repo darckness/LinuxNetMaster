@@ -1,0 +1,3 @@
+Interface AC: wlp2s0
+Interface AX: wlp3s0
+Interface USB: wlx789534968

@@ -2,6 +2,7 @@ import customtkinter as ctk
 import tkinter as tk
 from PIL import Image
 from screen.config import open_new_window
+
 # Configurações iniciais
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
@@ -72,6 +73,9 @@ def func5():
 
 def func6():
     print("Função 6 executada")
+    
+def reset():
+    print("Cleanning")
 
 functions = [func1, func2, func3, func4, func5, func6]
 
@@ -83,14 +87,17 @@ for i, text in enumerate(texts):
         column = 0
 
     box_frame = ctk.CTkFrame(center_frame, fg_color='#00c4ff', width=230, height=350, corner_radius=30)
-    box_frame.grid(row=row, column=column, padx=43, pady=60)
+    box_frame.grid(row=row, column=column, padx=43, pady=50)
 
     label = ctk.CTkLabel(box_frame, text=text, fg_color='white', text_color='black', font=("Arial", 12), corner_radius=30, height=40, width=180)
     label.pack(fill=ctk.X, pady=(10, 90), padx=(10, 10))
     
 
+    button = ctk.CTkButton(box_frame, text="Reset", command=reset, width=100, height=30, fg_color='white', text_color='black')
+    button.pack(pady=0)
+
     button = ctk.CTkButton(box_frame, text="Execute", command=functions[i], width=100, height=30)
-    button.pack(pady=10)
+    button.pack(pady=8)
 
     column += 1
 

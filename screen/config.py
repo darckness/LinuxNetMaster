@@ -18,8 +18,8 @@ def open_new_window():
 
     # Função para carregar as informações do arquivo
     def carregar_informacoes():
-        if os.path.exists("configuracoes.txt"):
-            with open("configuracoes.txt", "r") as file:
+        if os.path.exists("scripts/configuracoes.txt"):
+            with open("scripts/configuracoes.txt", "r") as file:
                 lines = file.readlines()
                 if len(lines) >= 3:
                     entry1.insert(0, lines[0].strip().split(": ")[1])
@@ -32,28 +32,28 @@ def open_new_window():
         item2 = entry2.get()
         item3 = entry3.get()
 
-        with open("configuracoes.txt", "w") as file:
-            file.write(f"Item 1: {item1}\n")
-            file.write(f"Item 2: {item2}\n")
-            file.write(f"Item 3: {item3}\n")
+        with open("scripts/configuracoes.txt", "w") as file:
+            file.write(f"Interface AC: {item1}\n")
+            file.write(f"Interface AX: {item2}\n")
+            file.write(f"Interface USB: {item3}\n")
         print("Informações salvas com sucesso!")
-
+        root.destroy()
     # Frame para as entradas
     frame = ctk.CTkFrame(root, corner_radius=10)
     frame.pack(pady=20, padx=20, fill="both", expand=True)
 
     # Entradas de texto
-    label1 = ctk.CTkLabel(frame, text="Item 1:")
+    label1 = ctk.CTkLabel(frame, text="Interface AC:")
     label1.pack(pady=5)
     entry1 = ctk.CTkEntry(frame)
     entry1.pack(pady=5)
 
-    label2 = ctk.CTkLabel(frame, text="Item 2:")
+    label2 = ctk.CTkLabel(frame, text="Interface AX:")
     label2.pack(pady=5)
     entry2 = ctk.CTkEntry(frame)
     entry2.pack(pady=5)
 
-    label3 = ctk.CTkLabel(frame, text="Item 3:")
+    label3 = ctk.CTkLabel(frame, text="Interface USB:")
     label3.pack(pady=5)
     entry3 = ctk.CTkEntry(frame)
     entry3.pack(pady=5)

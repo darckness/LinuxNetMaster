@@ -1,9 +1,15 @@
 #!/bin/bash
 
-interface_ax="$1"
-interface_ac="$2"
-interface_usb="$3"
-definicao="$4"
+# Caminho para o arquivo de configuração
+config_file="configuracoes.txt"
+
+# Ler os valores do arquivo de configuração
+interface_ac=$(grep "Item 1:" "$config_file" | cut -d':' -f2 | xargs)
+interface_ax=$(grep "Item 2:" "$config_file" | cut -d':' -f2 | xargs)
+interface_usb=$(grep "Item 3:" "$config_file" | cut -d':' -f2 | xargs)
+
+# Definição passada como argumento
+definicao="$1"
 
 function desabilitar_IEEE_802_11b_g_n_only_2_4 {
     sudo ifconfig ${interface_ax} down

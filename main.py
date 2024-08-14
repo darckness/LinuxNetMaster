@@ -12,12 +12,15 @@ root.title("LinuxNetMaster")
 root.geometry("1000x700")
 root.configure(bg='#b3e9f3')
 
-# Carregar a imagem
+# Carregar as imagens
 folder_image_path = "img/AQlogo.png"
 image_path = ctk.CTkImage(light_image=Image.open(folder_image_path), size=(40, 40))
 
 folder_image_chave = "img/chave.png"
 image_chave = ctk.CTkImage(light_image=Image.open(folder_image_chave), size=(35, 35))
+
+folder_image_iperf = "img/iperf.png"
+image_iperf = ctk.CTkImage(light_image=Image.open(folder_image_iperf), size=(35, 35))
 
 # Frame superior
 top_frame = ctk.CTkFrame(root, fg_color='#00c4ff', corner_radius=0, height=100)
@@ -34,8 +37,12 @@ software_name_label.pack(side=ctk.LEFT, padx=20, pady=10)
 left_frame = ctk.CTkFrame(root, fg_color='#ffffff', corner_radius=0, width=70)
 left_frame.pack(side=ctk.LEFT, fill=ctk.Y, padx=0, pady=0)
 
-button = ctk.CTkButton(left_frame, image=image_chave, text="", command=open_new_window, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
-button.pack(pady=10, padx=10)
+# Botões na barra lateral esquerda
+button_conf = ctk.CTkButton(left_frame, image=image_chave, text="", command=open_new_window, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
+button_conf.pack(pady=25, padx=10)
+
+button_iperf = ctk.CTkButton(left_frame, image=image_iperf, text="", command=open_new_window, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
+button_iperf.pack(pady=25, padx=10)
 
 # Frame central para os elementos principais
 center_frame = ctk.CTkFrame(root, fg_color='#C0F3FC', corner_radius=0)

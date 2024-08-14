@@ -1,8 +1,8 @@
 #!/bin/bash
 
-interface_ax = $1
-interface_ac = $2
-interface_usb = $3
+interface_ac=$(grep "Interface AC:" "$config_file" | cut -d':' -f2 | xargs)
+interface_ax=$(grep "Interface AX:" "$config_file" | cut -d':' -f2 | xargs)
+interface_usb=$(grep "Interface USB:" "$config_file" | cut -d':' -f2 | xargs)
 
 function habilitar_todas_interfaces{
     sudo ifconfig ${interface_ax} up

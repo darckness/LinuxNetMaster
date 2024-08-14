@@ -4,10 +4,11 @@
 config_file="configuracoes.txt"
 
 # Ler os valores do arquivo de configuração
-interface_ac=$(grep "Item 1:" "$config_file" | cut -d':' -f2 | xargs)
-interface_ax=$(grep "Item 2:" "$config_file" | cut -d':' -f2 | xargs)
-interface_usb=$(grep "Item 3:" "$config_file" | cut -d':' -f2 | xargs)
+interface_ac=$(grep "Interface AC:" "$config_file" | cut -d':' -f2 | xargs)
+interface_ax=$(grep "Interface AX:" "$config_file" | cut -d':' -f2 | xargs)
+interface_usb=$(grep "Interface USB:" "$config_file" | cut -d':' -f2 | xargs)
 
+echo ${interface_ac}, ${interface_ax}, ${interface_usb}
 # Definição passada como argumento
 definicao="$1"
 

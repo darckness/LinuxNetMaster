@@ -1,7 +1,9 @@
 import customtkinter as ctk
 import tkinter as tk
+import subprocess
 from PIL import Image
 from screen.config import open_new_window
+
 
 # Configurações iniciais
 ctk.set_appearance_mode("light")
@@ -21,7 +23,7 @@ folder_image_chave = "img/chave.png"
 image_chave = ctk.CTkImage(light_image=Image.open(folder_image_chave), size=(35, 35))
 
 folder_image_iperf = "img/iperf.png"
-image_iperf = ctk.CTkImage(light_image=Image.open(folder_image_iperf), size=(35, 35))
+image_iperf = ctk.CTkImage(light_image=Image.open(folder_image_iperf), size=(35, 30))
 
 # Frame superior
 top_frame = ctk.CTkFrame(root, fg_color='#00c4ff', corner_radius=0, height=100)
@@ -56,6 +58,7 @@ texts = [
     "IEEE 802.11a/b/g/n/ac 2.4GHz", "IEEE 802.11a/b/g/n/ac 5GHz", "IEEE 802.11a/b/g/n/ac/ax 5GHz"
 ]
 
+# Funções para os 6 botões
 def func1():
     print("Função 1 executada")
 
@@ -74,8 +77,16 @@ def func5():
 def func6():
     print("Função 6 executada")
     
+    
+# Função para reset das interfaces de rede
 def reset():
-    print("Cleanning")
+    try:
+        # Executa o script reset_script.sh
+        subprocess.run(["/bin/bash", "scripts/reset_all.sh"], check=True)
+        print("Script executado com sucesso!")
+    except subprocess.CalledProcessError as e:
+        print(f"Erro ao executar o script: {e}")
+
 
 functions = [func1, func2, func3, func4, func5, func6]
 

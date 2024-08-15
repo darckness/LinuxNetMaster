@@ -12,7 +12,7 @@ ctk.set_default_color_theme("blue")
 def iperf():
     try:
         # Executa o comando para abrir o terminal e listar o conteúdo
-        subprocess.run(["gnome-terminal", "--", "bash", "-c", "ls; exec bash"], check=True)
+        subprocess.run(["gnome-terminal", "--", "bash", "-c", "iperf3 -s; exec bash"], check=True)
         print("Terminal GNOME iniciado com o comando `ls`.")
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o comando: {e}")
@@ -66,7 +66,7 @@ button_conf.pack(pady=25, padx=10)
 button_iperf = ctk.CTkButton(left_frame, image=image_iperf, text="", command=iperf, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
 button_iperf.pack(pady=25, padx=10)
 
-button_iperf = ctk.CTkButton(left_frame, image=image_iperf_plug, text="", command=iperf, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
+button_iperf = ctk.CTkButton(left_frame, image=image_iperf_plug, text="", command=iperf_plug, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
 button_iperf.pack(pady=25, padx=10)
 
 # Frame central para os elementos principais

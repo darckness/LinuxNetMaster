@@ -78,16 +78,15 @@ def func6():
     print("Função 6 executada")
     
     
-# Função para reset das interfaces de rede
-def reset():
+ # Função para reset das interfaces de rede
+def reset(i):
     try:
         # Executa o script reset_script.sh
-        subprocess.run(["/bin/bash", "scripts/reset_all.sh"], check=True)
-        print("Script executado com sucesso!")
+        subprocess.run(["/bin/bash", "scripts/reset_all.sh ", str(i)], check=True)
+        print("Script executado com sucesso!", i)
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o script: {e}")
-
-
+        
 functions = [func1, func2, func3, func4, func5, func6]
 
 row = 0
@@ -104,7 +103,7 @@ for i, text in enumerate(texts):
     label.pack(fill=ctk.X, pady=(10, 90), padx=(10, 10))
     
 
-    button = ctk.CTkButton(box_frame, text="Reset", command=reset, width=100, height=30, fg_color='white', text_color='black')
+    button = ctk.CTkButton(box_frame, text="Reset", command=lambda i=i+1: reset(i), width=100, height=30, fg_color='white', text_color='black')
     button.pack(pady=0)
 
     button = ctk.CTkButton(box_frame, text="Execute", command=functions[i], width=100, height=30)

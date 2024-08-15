@@ -7,6 +7,7 @@ config_file="scripts/configuracoes.txt"
 interface_ac=$(grep "Interface AC:" "$config_file" | cut -d':' -f2 | xargs)
 interface_ax=$(grep "Interface AX:" "$config_file" | cut -d':' -f2 | xargs)
 interface_usb=$(grep "Interface USB:" "$config_file" | cut -d':' -f2 | xargs)
+interface_lan=$(grep "Interface LAN:" "$config_file" | cut -d':' -f2 | xargs)
 
 echo ${interface_ac}, ${interface_ax}, ${interface_usb}
 # Definição passada como argumento
@@ -27,6 +28,10 @@ function desabilitar_IEEE_802_11b_g_n_2_4_usb {
 function desabilitar_IEEE_802_11a_g_n_ac_2_4_plug {
     sudo ifconfig ${interface_ax} down
     sudo ifconfig ${interface_usb} down
+    ip netns add lan
+    ip link set ${interface_lan} netns lan
+    ip netns exec lan ip link set ${interface_lan} up
+    ip netns exec lan dhclient
 #    echo "Rede AC 2.4 Plug Configurada"
 }
 

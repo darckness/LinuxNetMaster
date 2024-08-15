@@ -1,3 +1,0 @@
-Interface AC: wlp
-Interface AX: wlp
-Interface USB: wlx

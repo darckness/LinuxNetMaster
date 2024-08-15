@@ -16,6 +16,14 @@ def iperf():
         print("Terminal GNOME iniciado com o comando `ls`.")
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o comando: {e}")
+        
+def iperf_plug():
+    try:
+        # Executa o comando para abrir o terminal e listar o conteúdo
+        subprocess.run(["gnome-terminal", "--", "bash", "-c", "sudo ip netns exec lan iperf3 -s; exec bash"], check=True)
+        print("Terminal GNOME iniciado com o comando `ls`.")
+    except subprocess.CalledProcessError as e:
+        print(f"Erro ao executar o comando: {e}")
 
 # Janela principal
 root = ctk.CTk()
@@ -32,6 +40,9 @@ image_chave = ctk.CTkImage(light_image=Image.open(folder_image_chave), size=(35,
 
 folder_image_iperf = "img/iperf.png"
 image_iperf = ctk.CTkImage(light_image=Image.open(folder_image_iperf), size=(35, 30))
+
+folder_image_iperf_plug = "img/plug.png"
+image_iperf_plug = ctk.CTkImage(light_image=Image.open(folder_image_iperf_plug), size=(25, 45))
 
 # Frame superior
 top_frame = ctk.CTkFrame(root, fg_color='#00c4ff', corner_radius=0, height=100)
@@ -53,6 +64,9 @@ button_conf = ctk.CTkButton(left_frame, image=image_chave, text="", command=open
 button_conf.pack(pady=25, padx=10)
 
 button_iperf = ctk.CTkButton(left_frame, image=image_iperf, text="", command=iperf, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
+button_iperf.pack(pady=25, padx=10)
+
+button_iperf = ctk.CTkButton(left_frame, image=image_iperf_plug, text="", command=iperf, width=10, height=40, fg_color='#ffffff', text_color='black', hover_color='#7E81BD', corner_radius=8)
 button_iperf.pack(pady=25, padx=10)
 
 # Frame central para os elementos principais

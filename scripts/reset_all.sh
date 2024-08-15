@@ -14,6 +14,7 @@ function habilitar_todas_interfaces {
     sudo ifconfig ${interface_ax} up
     sudo ifconfig ${interface_ac} up
     sudo ifconfig ${interface_usb} up 
+    echo "interface"
 }
 
 function caso_plug {
@@ -22,9 +23,10 @@ function caso_plug {
     sudo ifconfig ${interface_usb} up
     sudo ip netns exec lan ip link set ${interface_lan} netns 1
     sudo ip -all netns delete
+    echo "plug"
 }
 
-if ["$definicao" -eq 3]; then
+if [[ "$definicao" == "3" ]]; then
     caso_plug
 else
     habilitar_todas_interfaces

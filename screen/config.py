@@ -14,28 +14,31 @@ def open_new_window():
     # Janela principal
     root = ctk.CTk()
     root.title("Configuração")
-    root.geometry("400x350")
+    root.geometry("400x450")
 
     # Função para carregar as informações do arquivo
     def carregar_informacoes():
         if os.path.exists("scripts/configuracoes.txt"):
             with open("scripts/configuracoes.txt", "r") as file:
                 lines = file.readlines()
-                if len(lines) >= 3:
+                if len(lines) >= 4:
                     entry1.insert(0, lines[0].strip().split(": ")[1])
                     entry2.insert(0, lines[1].strip().split(": ")[1])
                     entry3.insert(0, lines[2].strip().split(": ")[1])
+                    entry4.insert(0, lines[3].strip().split(": ")[1])
 
     # Função para salvar as informações em um arquivo
     def salvar_informacoes():
         item1 = entry1.get()
         item2 = entry2.get()
         item3 = entry3.get()
+        item4 = entry4.get()
 
         with open("scripts/configuracoes.txt", "w") as file:
             file.write(f"Interface AC: {item1}\n")
             file.write(f"Interface AX: {item2}\n")
             file.write(f"Interface USB: {item3}\n")
+            file.write(f"Interface LAN: {item4}\n")
         print("Informações salvas com sucesso!")
         root.destroy()
     # Frame para as entradas
@@ -57,6 +60,11 @@ def open_new_window():
     label3.pack(pady=5)
     entry3 = ctk.CTkEntry(frame)
     entry3.pack(pady=5)
+    
+    label4 = ctk.CTkLabel(frame, text="Interface USB:")
+    label4.pack(pady=5)
+    entry4 = ctk.CTkEntry(frame)
+    entry4.pack(pady=5)
 
     # Botão de salvar
     save_button = ctk.CTkButton(frame, text="Salvar", command=salvar_informacoes)

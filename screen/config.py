@@ -61,7 +61,7 @@ def open_new_window():
     entry3 = ctk.CTkEntry(frame)
     entry3.pack(pady=5)
     
-    label4 = ctk.CTkLabel(frame, text="Interface USB:")
+    label4 = ctk.CTkLabel(frame, text="Interface LAN:")
     label4.pack(pady=5)
     entry4 = ctk.CTkEntry(frame)
     entry4.pack(pady=5)

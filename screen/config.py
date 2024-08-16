@@ -15,6 +15,9 @@ def open_new_window():
     root = ctk.CTk()
     root.title("Configuração")
     root.geometry("400x450")
+    
+    # Não deixa redimencionar a tela
+    root.resizable(False, False)
 
     # Função para carregar as informações do arquivo
     def carregar_informacoes():

@@ -31,6 +31,9 @@ root.title("LinuxNetMaster")
 root.geometry("1000x700")
 root.configure(bg='#b3e9f3')
 
+# Nao deixa redimencionar a tela
+root.resizable(False, False)
+
 # Carregar as imagens
 folder_image_path = "img/AQlogo.png"
 image_path = ctk.CTkImage(light_image=Image.open(folder_image_path), size=(40, 40))

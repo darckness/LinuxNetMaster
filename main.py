@@ -80,36 +80,25 @@ texts = [
     "IEEE 802.11a/b/g/n/ac 2.4GHz", "IEEE 802.11a/b/g/n/ac 5GHz", "IEEE 802.11a/b/g/n/ac/ax 5GHz"
 ]
 
-# Funções para os 6 botões
-def func1():
-    print("Função 1 executada")
-
-def func2():
-    print("Função 2 executada")
-
-def func3():
-    print("Função 3 executada")
-
-def func4():
-    print("Função 4 executada")
-
-def func5():
-    print("Função 5 executada")
-
-def func6():
-    print("Função 6 executada")
+# Função para desabilitar as interfaces de rede
+def disable(i):
+    try:
+        # Executa o script disable_interfaces.sh
+        subprocess.run(["/bin/bash", "scripts/disable_interfaces.sh", str(i)], check=True)
+        print("Script executado com sucesso!", i)
+    except subprocess.CalledProcessError as e:
+        print(f"Erro ao executar o script: {e}")
     
-    
+
  # Função para reset das interfaces de rede
 def reset(i):
     try:
         # Executa o script reset_script.sh
-        subprocess.run(["/bin/bash", "scripts/reset_all.sh ", str(i)], check=True)
+        subprocess.run(["/bin/bash", "scripts/reset_all.sh", str(i)], check=True)
         print("Script executado com sucesso!", i)
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o script: {e}")
-        
-functions = [func1, func2, func3, func4, func5, func6]
+
 
 row = 0
 column = 0
@@ -128,7 +117,7 @@ for i, text in enumerate(texts):
     button = ctk.CTkButton(box_frame, text="Reset", command=lambda i=i+1: reset(i), width=100, height=30, fg_color='white', text_color='black')
     button.pack(pady=0)
 
-    button = ctk.CTkButton(box_frame, text="Execute", command=functions[i], width=100, height=30)
+    button = ctk.CTkButton(box_frame, text="Execute", command=lambda i=i+1: disable(i), width=100, height=30)
     button.pack(pady=8)
 
     column += 1

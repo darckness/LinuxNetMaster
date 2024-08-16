@@ -16,13 +16,13 @@ definicao="$1"
 function desabilitar_IEEE_802_11b_g_n_only_2_4 {
     sudo ifconfig ${interface_ax} down
     sudo ifconfig ${interface_usb} down
-#    echo "Rede AC Somente 2.4 Configurada"
+    echo "Rede AC Somente 2.4 Configurada"
 }
 
 function desabilitar_IEEE_802_11b_g_n_2_4_usb {
     sudo ifconfig ${interface_ax} down
     sudo ifconfig ${interface_ac} down
-#    echo "Rede USB Configurada" 
+    echo "Rede USB Configurada" 
 }
 
 function desabilitar_IEEE_802_11a_g_n_ac_2_4_plug {
@@ -32,25 +32,25 @@ function desabilitar_IEEE_802_11a_g_n_ac_2_4_plug {
     sudo ip link set ${interface_lan} netns lan
     sudo ip netns exec lan ip link set ${interface_lan} up
     sudo ip netns exec lan dhclient
-#    echo "Rede AC 2.4 Plug Configurada"
+    echo "Rede AC 2.4 Plug Configurada"
 }
 
 function desabilitar_IEEE_802_11a_b_g_n_ac_2_4 {
     sudo ifconfig ${interface_ax} down
     sudo ifconfig ${interface_usb} down
-#    echo "Rede AC 2.4 Configurada"
+    echo "Rede AC 2.4 Configurada"
 }
 
 function desabilitar_IEEE_802_11a_b_g_n_ac_5g {
     sudo ifconfig ${interface_ax} down
     sudo ifconfig ${interface_usb} down
-#    echo "Rede AC 5GHZ Configurada"
+    echo "Rede AC 5GHZ Configurada"
 }
 
 function desabilitar_IEEE_802_11a_b_g_n_ac_ax_5g {
     sudo ifconfig ${interface_ac} down
     sudo ifconfig ${interface_usb} down
-#    echo "Rede AX 5Ghz Configurada"
+    echo "Rede AX 5Ghz Configurada"
 }
 
 case "$definicao" in 

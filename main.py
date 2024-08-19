@@ -105,9 +105,16 @@ def reset(i):
     try:
         # Executa o script reset_script.sh
         subprocess.run(["/bin/bash", "/home/aq/LinuxNetMaster/scripts/reset_all.sh", str(i)], check=True)
+        print("Script executado com sucesso!", i) 
+              
+        # Excluir redes wifi conhecidas
+        delete_all_wifi = ("nmcli connection show | grep wifi | awk '{print $1}' | xargs -I {} nmcli connection delete \"{}\"")
+        subprocess.run(delete_all_wifi, shell=True, check=True)
         print("Script executado com sucesso!", i)
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o script: {e}")
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado: {e}")
         
 def change_box_color(box_frame, color):
     box_frame.configure(fg_color=color)

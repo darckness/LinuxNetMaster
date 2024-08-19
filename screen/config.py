@@ -21,8 +21,8 @@ def open_new_window():
 
     # Função para carregar as informações do arquivo
     def carregar_informacoes():
-        if os.path.exists("scripts/configuracoes.txt"):
-            with open("scripts/configuracoes.txt", "r") as file:
+        if os.path.exists("/home/aq/LinuxNetMaster/scripts/configuracoes.txt"):
+            with open("/home/aq/LinuxNetMaster/scripts/configuracoes.txt", "r") as file:
                 lines = file.readlines()
                 if len(lines) >= 4:
                     entry1.insert(0, lines[0].strip().split(": ")[1])

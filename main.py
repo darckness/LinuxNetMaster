@@ -36,19 +36,19 @@ root.configure(bg='#b3e9f3')
 root.resizable(False, False)
 
 # Carregar as imagens
-folder_image_path = "img/AQlogo.png"
+folder_image_path = "/home/aq/LinuxNetMaster/img/AQlogo.png"
 image_path = ctk.CTkImage(light_image=Image.open(folder_image_path), size=(40, 40))
 
-folder_image_chave = "img/chave.png"
+folder_image_chave = "/home/aq/LinuxNetMaster/img/chave.png"
 image_chave = ctk.CTkImage(light_image=Image.open(folder_image_chave), size=(35, 35))
 
-folder_image_iperf = "img/iperf.png"
+folder_image_iperf = "/home/aq/LinuxNetMaster/img/iperf.png"
 image_iperf = ctk.CTkImage(light_image=Image.open(folder_image_iperf), size=(35, 30))
 
-folder_image_iperf_plug = "img/plug.png"
+folder_image_iperf_plug = "/home/aq/LinuxNetMaster/img/plug.png"
 image_iperf_plug = ctk.CTkImage(light_image=Image.open(folder_image_iperf_plug), size=(25, 45))
 
-folder_ips = "img/IPs.png"
+folder_ips = "/home/aq/LinuxNetMaster/img/IPs.png"
 image_ips = ctk.CTkImage(light_image=Image.open(folder_ips), size=(25, 45))
 
 # Frame superior
@@ -94,7 +94,7 @@ texts = [
 def disable(i):
     try:
         # Executa o script disable_interfaces.sh
-        subprocess.run(["/bin/bash", "scripts/disable_interfaces.sh", str(i)], check=True)
+        subprocess.run(["/bin/bash", "/home/aq/LinuxNetMaster/scripts/disable_interfaces.sh", str(i)], check=True)
         print("Script executado com sucesso!", i)
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o script: {e}")
@@ -104,7 +104,7 @@ def disable(i):
 def reset(i):
     try:
         # Executa o script reset_script.sh
-        subprocess.run(["/bin/bash", "scripts/reset_all.sh", str(i)], check=True)
+        subprocess.run(["/bin/bash", "/home/aq/LinuxNetMaster/scripts/reset_all.sh", str(i)], check=True)
         print("Script executado com sucesso!", i)
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o script: {e}")
@@ -125,7 +125,11 @@ for i, text in enumerate(texts):
     box_frame.grid(row=row, column=column, padx=43, pady=50)
 
     label = ctk.CTkLabel(box_frame, text=text, fg_color='white', text_color='black', font=("Arial", 12), corner_radius=30, height=40, width=180)
-    label.pack(fill=ctk.X, pady=(10, 90), padx=(10, 10))
+    label.pack(fill=ctk.X, pady=(10, 10), padx=(10, 10))
+    #label.pack(fill=ctk.X, pady=(10, 90), padx=(10, 10))
+    
+    label_id = ctk.CTkLabel(box_frame, text=["id:", (i+1)], fg_color='#00c4ff', text_color='black', font=("Arial", 12), corner_radius=30, height=30, width=180)
+    label_id.pack(fill=ctk.X, pady=(0, 40), padx=(10, 10))
     
     # Botoes antigos sem alteração da cor na tela.
     

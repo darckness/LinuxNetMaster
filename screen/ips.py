@@ -29,7 +29,7 @@ def openipview():
 
     # Função para ler o arquivo e exibir os IPs
     def consultar_interfaces():
-        with open("scripts/configuracoes.txt", "r") as file:
+        with open("/home/aq/LinuxNetMaster/scripts/configuracoes.txt", "r") as file:
             interfaces = [line.split(": ")[1].strip() for line in file.readlines()]
         
         output_textbox.delete(1.0, ctk.END)  # Limpa a área de texto antes de exibir novos resultados

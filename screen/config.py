@@ -37,7 +37,7 @@ def open_new_window():
         item3 = entry3.get()
         item4 = entry4.get()
 
-        with open("scripts/configuracoes.txt", "w") as file:
+        with open("/home/aq/LinuxNetMaster/scripts/configuracoes.txt", "w") as file:
             file.write(f"Interface AC: {item1}\n")
             file.write(f"Interface AX: {item2}\n")
             file.write(f"Interface USB: {item3}\n")

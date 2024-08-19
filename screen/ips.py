@@ -56,7 +56,7 @@ def openipview():
         for interface in interfaces:
             result = consultar_ip(interface)
             plug = consultar_ip_plug()
-            output_textbox.insert(ctk.END, result + plug"\n")
+            output_textbox.insert(ctk.END, result + plug + "\n")
 
     # Configuração da interface gráfica
     app = ctk.CTk()

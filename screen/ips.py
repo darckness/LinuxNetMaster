@@ -76,4 +76,14 @@ def openipview():
 
     # Área de saída de texto centralizada com bordas arredondadas
     output_textbox = ctk.CTkTextbox(frame, height=250, corner_radius=10)
-    output_textbox.pack
+    output_textbox.pack(pady=10, padx=20, fill="both", expand=True)
+
+    # Botão de consulta centralizado com um design mais chamativo
+    button = ctk.CTkButton(frame, text="Consultar", 
+                           font=("Arial", 16), 
+                           fg_color="#1a73e8", 
+                           hover_color="#155ab6", 
+                           command=lambda: threading.Thread(target=consultar_interfaces).start())
+    button.pack(pady=20)
+
+    app.mainloop()

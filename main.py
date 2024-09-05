@@ -64,7 +64,7 @@ software_name_label1 = ctk.CTkLabel(top_frame, text="Linux Net Master", text_col
 software_name_label1.pack(side=ctk.LEFT, padx=0, pady=10)
 
 # Texto "AQ OEM" em outra cor, como amarelo
-software_name_label2 = ctk.CTkLabel(top_frame, text="AQ OEM", text_color='white', font=("Tahoma", 20, "bold"))
+software_name_label2 = ctk.CTkLabel(top_frame, text="AQ OEM", text_color='#C3C1FD', font=("Tahoma", 20, "bold"))
 software_name_label2.pack(side=ctk.RIGHT, padx=50, pady=10)
 
 # Frame esquerdo para os botões

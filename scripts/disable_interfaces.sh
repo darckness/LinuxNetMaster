@@ -26,7 +26,7 @@ function desabilitar_IEEE_802_11b_g_n_2_4_usb {
 }
 
 function desabilitar_IEEE_802_11a_g_n_ac_2_4_plug {
-    sudo ifconfig ${interface_ax} down
+    sudo ifconfig ${interface_ac} down
     sudo ifconfig ${interface_usb} down
     sudo ip netns add lan
     sudo ip link set ${interface_lan} netns lan

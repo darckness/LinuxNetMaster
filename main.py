@@ -28,7 +28,7 @@ def iperf_plug():
 
 # Janela principal
 root = ctk.CTk()
-root.title("LinuxNetMaster")
+root.title("LinuxNetMaster AQ OEM")
 root.geometry("1000x700")
 root.configure(bg='#b3e9f3')
 
@@ -36,19 +36,19 @@ root.configure(bg='#b3e9f3')
 root.resizable(False, False)
 
 # Carregar as imagens
-folder_image_path = "/home/aq/LinuxNetMaster/img/AQlogo.png"
+folder_image_path = "img/AQlogo.png"
 image_path = ctk.CTkImage(light_image=Image.open(folder_image_path), size=(40, 40))
 
-folder_image_chave = "/home/aq/LinuxNetMaster/img/chave.png"
+folder_image_chave = "img/chave.png"
 image_chave = ctk.CTkImage(light_image=Image.open(folder_image_chave), size=(35, 35))
 
-folder_image_iperf = "/home/aq/LinuxNetMaster/img/iperf.png"
+folder_image_iperf = "img/iperf.png"
 image_iperf = ctk.CTkImage(light_image=Image.open(folder_image_iperf), size=(35, 30))
 
-folder_image_iperf_plug = "/home/aq/LinuxNetMaster/img/plug.png"
+folder_image_iperf_plug = "img/plug.png"
 image_iperf_plug = ctk.CTkImage(light_image=Image.open(folder_image_iperf_plug), size=(25, 45))
 
-folder_ips = "/home/aq/LinuxNetMaster/img/IPs.png"
+folder_ips = "img/IPs.png"
 image_ips = ctk.CTkImage(light_image=Image.open(folder_ips), size=(25, 45))
 
 # Frame superior
@@ -59,8 +59,13 @@ top_frame.pack(side=ctk.TOP, fill='x', expand=False)
 img_label = ctk.CTkLabel(top_frame, image=image_path, text="", text_color='black', font=("Arial", 16, "bold"))
 img_label.pack(side=ctk.LEFT, padx=20, pady=10)
 
-software_name_label = ctk.CTkLabel(top_frame, text="Linux Net Master", text_color='white', font=("Tahoma", 20, "bold"))
-software_name_label.pack(side=ctk.LEFT, padx=20, pady=10)
+# Texto "Linux Net Master" em branco
+software_name_label1 = ctk.CTkLabel(top_frame, text="Linux Net Master", text_color='white', font=("Tahoma", 20, "bold"))
+software_name_label1.pack(side=ctk.LEFT, padx=0, pady=10)
+
+# Texto "AQ OEM" em outra cor, como amarelo
+software_name_label2 = ctk.CTkLabel(top_frame, text="AQ OEM", text_color='#FF0000', font=("Tahoma", 20, "bold"))
+software_name_label2.pack(side=ctk.RIGHT, padx=50, pady=10)
 
 # Frame esquerdo para os botões
 left_frame = ctk.CTkFrame(root, fg_color='#ffffff', corner_radius=0, width=70)

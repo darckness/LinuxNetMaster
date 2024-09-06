@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Caminho para o arquivo de configuração
-config_file="/home/aq/LinuxNetMaster/scripts/configuracoes.txt"
+config_file="/home/aq-oem/LinuxNetMaster/scripts/configuracoes.txt"
 
 # Ler os valores do arquivo de configuração
 interface_ac=$(grep "Interface AC:" "$config_file" | cut -d':' -f2 | xargs)

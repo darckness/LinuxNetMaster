@@ -1,6 +1,6 @@
 #!/bin/bash
 
-config_file="/home/aq/LinuxNetMaster/scripts/configuracoes.txt"
+config_file="/home/aq-oem/LinuxNetMaster/scripts/configuracoes.txt"
 
 interface_ac=$(grep "Interface AC:" "$config_file" | cut -d':' -f2 | xargs)
 interface_ax=$(grep "Interface AX:" "$config_file" | cut -d':' -f2 | xargs)

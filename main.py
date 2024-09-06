@@ -99,7 +99,7 @@ texts = [
 def disable(i):
     try:
         # Executa o script disable_interfaces.sh
-        subprocess.run(["/bin/bash", "/home/aq/LinuxNetMaster/scripts/disable_interfaces.sh", str(i)], check=True)
+        subprocess.run(["/bin/bash", "/home/aq-oem/LinuxNetMaster/scripts/disable_interfaces.sh", str(i)], check=True)
         print("Script executado com sucesso!", i)
     except subprocess.CalledProcessError as e:
         print(f"Erro ao executar o script: {e}")
@@ -109,7 +109,7 @@ def disable(i):
 def reset(i):
     try:
         # Executa o script reset_script.sh
-        subprocess.run(["/bin/bash", "/home/aq/LinuxNetMaster/scripts/reset_all.sh", str(i)], check=True)
+        subprocess.run(["/bin/bash", "/home/aq-oem/LinuxNetMaster/scripts/reset_all.sh", str(i)], check=True)
         print("Script executado com sucesso!", i) 
               
         # Excluir redes wifi conhecidas

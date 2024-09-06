@@ -36,19 +36,19 @@ root.configure(bg='#b3e9f3')
 root.resizable(False, False)
 
 # Carregar as imagens
-folder_image_path = "img/AQlogo.png"
+folder_image_path = "/home/aq-oem/LinuxNetMaster/img/AQlogo.png"
 image_path = ctk.CTkImage(light_image=Image.open(folder_image_path), size=(40, 40))
 
-folder_image_chave = "img/chave.png"
+folder_image_chave = "/home/aq-oem/LinuxNetMaster/img/chave.png"
 image_chave = ctk.CTkImage(light_image=Image.open(folder_image_chave), size=(35, 35))
 
-folder_image_iperf = "img/iperf.png"
+folder_image_iperf = "/home/aq-oem/LinuxNetMaster/img/iperf.png"
 image_iperf = ctk.CTkImage(light_image=Image.open(folder_image_iperf), size=(35, 30))
 
-folder_image_iperf_plug = "img/plug.png"
+folder_image_iperf_plug = "/home/aq-oem/LinuxNetMaster/img/plug.png"
 image_iperf_plug = ctk.CTkImage(light_image=Image.open(folder_image_iperf_plug), size=(25, 45))
 
-folder_ips = "img/IPs.png"
+folder_ips = "/home/aq-oem/LinuxNetMaster/img/IPs.png"
 image_ips = ctk.CTkImage(light_image=Image.open(folder_ips), size=(25, 45))
 
 # Frame superior
